@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="form-container">
+      <!-- Main Point Form -->
+      <h3 class="form-header">Main Point</h3>
+      <form>
+        <div class="input-group">
+          <label for="main-lat">Latitude:</label>
+          <input
+            id="main-lat"
+            type="text"
+            [(ngModel)]="mainPoint.lat"
+            name="mainLat"
+            class="form-control"
+            (input)="updateMainPoint()"
+          />
+        </div>
+  
+        <div class="input-group">
+          <label for="main-lng">Longitude:</label>
+          <input
+            id="main-lng"
+            type="text"
+            [(ngModel)]="mainPoint.lng"
+            name="mainLng"
+            class="form-control"
+            (input)="updateMainPoint()"
+          />
+        </div>
+  
+        <div class="input-group">
+          <label for="main-radius">Radius (meters):</label>
+          <input
+            id="main-radius"
+            type="text"
+            [(ngModel)]="mainPoint.radius"
+            name="mainRadius"
+            class="form-control"
+            (input)="updateMainPoint()"
+          />
+        </div>
+      </form>
+  
+      <!-- Additional Points Form -->
+      <h3 class="form-header">Additional Points</h3>
+      <form>
+        <div class="input-group">
+          <label for="additional-lat">Latitude:</label>
+          <input
+            id="additional-lat"
+            type="text"
+            [(ngModel)]="newPoint.lat"
+            name="additionalLat"
+            class="form-control"
+          />
+        </div>
+  
+        <div class="input-group">
+          <label for="additional-lng">Longitude:</label>
+          <input
+            id="additional-lng"
+            type="text"
+            [(ngModel)]="newPoint.lng"
+            name="additionalLng"
+            class="form-control"
+          />
+        </div>
+  
+        <div class="input-group">
+          <label for="additional-radius">Distance (meters):</label>
+          <input
+            id="additional-radius"
+            type="text"
+            [value]="newPoint.distance"
+            disabled
+            class="form-control"
+          />
+        </div>
+  
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="addAdditionalPoint()"
+        >
+          Add Point
+        </button>
+      </form>
+  
+      <!-- Additional Info -->
+      <h4 class="info-text">
+        Total Points Inside Main Radius: {{ pointsInsideRadius }}
+      </h4>
+    </div>
+  
+    <!-- Map -->
+    <div id="map"></div>
+  </div>
+  
